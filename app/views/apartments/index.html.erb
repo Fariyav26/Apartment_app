@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Apartments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Street1</th>
+      <th>Street2</th>
+      <th>City</th>
+      <th>Postal</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Contact name</th>
+      <th>Phone</th>
+      <th>Hours</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apartments.each do |apartment| %>
+      <tr>
+        <td><%= apartment.street1 %></td>
+        <td><%= apartment.street2 %></td>
+        <td><%= apartment.city %></td>
+        <td><%= apartment.postal %></td>
+        <td><%= apartment.state %></td>
+        <td><%= apartment.country %></td>
+        <td><%= apartment.contact_name %></td>
+        <td><%= apartment.phone %></td>
+        <td><%= apartment.hours %></td>
+        <td><%= apartment.latitude %></td>
+        <td><%= apartment.longitude %></td>
+        <td><%= link_to 'Show', apartment %></td>
+        <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
+        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apartment', new_apartment_path %>
