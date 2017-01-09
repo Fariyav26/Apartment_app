@@ -12,4 +12,15 @@ RSpec.feature "LandingPages", type: :feature do
     end
   end
 
+  context 'I can click to a link that takes me to where I can create a new apartment listing' do
+    Steps 'Click link' do
+      Given 'I am on the landing page' do
+        visit '/'
+      end
+      Then 'I can click New Apartment link' do
+        click_link 'New Apartment'
+      end
+    end
+  end
+
 end
