@@ -9,6 +9,9 @@ RSpec.feature "LandingPages", type: :feature do
       Then 'I can see a list of apartments' do
         expect(page).to have_content("Listing Apartments")
       end
+      And 'I can see the listed apartments shown on a map' do
+        expect(page).to have_css('div#map_location_all')
+      end
     end
   end
 

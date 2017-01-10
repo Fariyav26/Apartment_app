@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+  get 'apartments/map_location_all'
+
   resources :apartments do
     # GET /apartments/:apartment_id/map_locations
-    get 'map_location'        # Add this and the "do" "end"
+    get 'map_location'
+    #get 'map_location_all'      # Add this and the "do" "end"
+    # get 'map_locations'
   end
   root 'apartments#index' #add this line
   # The priority is based upon order of creation: first created -> highest priority.

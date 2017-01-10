@@ -60,7 +60,9 @@
   <%= @apartment.longitude %>
 </p>
 
-<div id="apartment_map" data-apartment-id="<%=@apartment.id%>">Google Map will appear here...</div>
-
 <%= link_to 'Edit', edit_apartment_path(@apartment) %> |
 <%= link_to 'Back', apartments_path %>
+
+<br><br>
+
+<div id="apartment_map" data-apartment-id="<%=@apartment.id%>">Google Map will appear here...</div>

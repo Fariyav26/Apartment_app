@@ -26,6 +26,16 @@ class ApartmentsController < ApplicationController
     end
     render json: @hash.to_json
   end
+  # used apartment.all because we did not need to find a specific id
+  def map_location_all
+    apartments = Apartment.all
+    @hash = Gmaps4rails.build_markers(apartments) do |apartment, marker|
+      marker.lat(apartment.latitude)
+      marker.lng(apartment.longitude)
+      marker.infowindow("<em>" + apartment.full_address + "</em>")
+    end
+    render json: @hash.to_json
+  end
 
   # GET /apartments/1/edit
   def edit
