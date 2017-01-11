@@ -1,5 +1,7 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
+  
+  before_action :authenticate_user!, except: [:index, :show, :map_location, :map_location_all, :destroy] #add this line
 
   # GET /apartments
   # GET /apartments.json
@@ -15,6 +17,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments/new
   def new
     @apartment = Apartment.new
+    @apartment.user = current_user
   end
 
   def map_location
@@ -45,6 +48,7 @@ class ApartmentsController < ApplicationController
   # POST /apartments.json
   def create
     @apartment = Apartment.new(apartment_params)
+    @apartment.user = current_user
 
     respond_to do |format|
       if @apartment.save
@@ -74,10 +78,15 @@ class ApartmentsController < ApplicationController
   # DELETE /apartments/1
   # DELETE /apartments/1.json
   def destroy
-    @apartment.destroy
-    respond_to do |format|
-      format.html { redirect_to apartments_url, notice: 'Apartment was successfully destroyed.' }
-      format.json { head :no_content }
+    if user_signed_in?
+      @apartment.destroy
+      respond_to do |format|
+        format.html { redirect_to apartments_url, notice: 'Apartment was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      # Do not destroy
+      render text: "Not authorized"
     end
   end
 

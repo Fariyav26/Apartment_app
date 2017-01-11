@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   get 'apartments/map_location_all'
 
   resources :apartments do
