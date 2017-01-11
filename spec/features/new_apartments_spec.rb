@@ -17,6 +17,9 @@ RSpec.feature "NewApartments", type: :feature do
         fill_in 'Phone', with: '619-303-3030'
         fill_in 'Hours', with: '5:00pm - 9:00pm'
       end
+      Then 'I can attach a photo' do
+        attach_file('apartment_image', 'spec/test_images/princess-fantasy-castle-_-wp1.jpg')
+      end
       And 'I can click Create Apartment' do
         click_button 'Create Apartment'
       end
