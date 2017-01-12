@@ -19,6 +19,10 @@ gem 'paperclip'
 
 gem 'devise'
 
+gem 'omniauth-twitter'
+
+# gem 'omniauth-facebook'
+
 
 
 # Use jquery as the JavaScript library

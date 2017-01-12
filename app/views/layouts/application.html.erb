@@ -25,6 +25,9 @@
   <li>
   <%= link_to('Login', new_user_session_path)  %>
   </li>
+  <li>
+    <%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path %>
+  </li>
 <% end %>
 
 <%= yield %>
