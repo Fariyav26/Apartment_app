@@ -21,7 +21,8 @@ gem 'devise'
 
 gem 'omniauth-twitter'
 
-# gem 'omniauth-facebook'
+gem 'cancancan'
+gem 'rolify'
 
 
 

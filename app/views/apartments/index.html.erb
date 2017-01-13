@@ -32,10 +32,14 @@
         <td><%= apartment.phone %></td>
         <td><%= apartment.hours %></td>
         <td><%= apartment.user.email %></td>
-        <td><%= link_to 'Show', apartment %></td>
-        <% if current_user == apartment.user %>
+        <% if current_user.has_role? :default %>
+          <td><%= link_to 'Show', apartment %></td>
+        <% elsif current_user.has_role? :admin%>
+          <%@apartments.all %>
+          <td><%= link_to 'Show', apartment %></td>
           <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
-          <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
+           %></td>
         <% end %>
       </tr>
     <% end %>

@@ -10,4 +10,8 @@ class Apartment < ActiveRecord::Base
   def full_address
     street1 + ', ' + street2 + ', ' + city + ", " + state + ", " + postal + ', ' + country
   end
+
+  resourcify
+  # as a user I can see the apartment listing and nothing else..
+
 end
